@@ -1,6 +1,6 @@
 "use client"
 import React, { FormEvent, useEffect, useRef, useState } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import {
   Drawer,
   DrawerClose,
@@ -16,7 +16,7 @@ import { Input } from '@/components/ui/input'
 import axios from 'axios'
 import { useAppContext } from '@/hooks/useAppContext'
 import { CldUploadWidget } from 'next-cloudinary'
-import {cloudUpload, uploadCloudinary} from '@/server/config/cloudinary'
+// import {cloudUpload, uploadCloudinary} from '@/server/config/cloudinary'
 import { CiCamera, CiCirclePlus } from 'react-icons/ci'
 import { BiPlus } from 'react-icons/bi'
 
