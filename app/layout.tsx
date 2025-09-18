@@ -6,7 +6,7 @@ import Navbar from "@/components/utility/navbar";
 import { AppContextProvider } from "@/context/appContext";
 import { Footer3 } from "@/components/myComponents/subs/footer3";
 // import {Roboto} from "next/font/google"
-import SocketProvider from '../socket/socket.tsx';
+import SocketProvider from '../socket/socketPrivider.tsx';
 
 // const roboto = Roboto({
 //   subsets : ["latin"], style : "normal"

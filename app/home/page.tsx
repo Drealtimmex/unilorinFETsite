@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { FaBell } from "react-icons/fa";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { Input } from '@/components/ui/input';
-import { useSocket } from '../../socket/socket';
+import { useSocket } from '../../socket/socketPrivider';
 import axios from 'axios';
 
 const page = () => {
