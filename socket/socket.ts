@@ -5,16 +5,14 @@ let socket: Socket | null = null;
 
 /**
  * getSocket
- * - token: JWT (prefer passing it explicitly, otherwise read from localStorage)
- * - userId, role: optional extra metadata you may want in the handshake
- *
- * returns Socket | null
+ * token: optional JWT
+ * userId/role: optional metadata for handshake
  */
 export const getSocket = (token?: string | null, userId?: string | null, role?: string | null): Socket | null => {
   if (!socket) {
-    const accessToken = token || localStorage.getItem("accessToken");
+    const accessToken = token || (typeof window !== "undefined" ? localStorage.getItem("accessToken") : null);
     if (!accessToken) {
-      console.error("getSocket: no access token available");
+      console.warn("getSocket: no access token available");
       return null;
     }
 
@@ -22,7 +20,6 @@ export const getSocket = (token?: string | null, userId?: string | null, role?: 
       auth: { token: accessToken, userId, role },
       transports: ["websocket"],
       autoConnect: false,
-      // if you rely on httpOnly cookie flows you could set withCredentials: true here
     });
 
     socket.connect();
@@ -48,3 +45,4 @@ export const disconnectSocket = () => {
     socket = null;
   }
 };
+export type MaybeSocket = Socket | null;
